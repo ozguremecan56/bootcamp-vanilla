@@ -3,7 +3,7 @@ import Row from "./Row"
 const CurrencyTable = ({currencies})=>{
 
     return(
-        <table>
+    <table>
       <thead>
         <tr>
           <th>Döviz Cinsi</th>
@@ -11,11 +11,12 @@ const CurrencyTable = ({currencies})=>{
           <th>Satış(TL)</th>
           <th>Fark(%)</th>
         </tr>
-        <Row currency={currencies[0]}></Row>
-        <Row currency={currencies[1]}></Row>
-        <Row currency={currencies[2]}></Row>
+        
       </thead>
-      </table>
+      
+        {currencies.map((currency) =>(<Row currency={currency}></Row>))}
+
+    </table>
     )
     
 }

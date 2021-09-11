@@ -6,12 +6,12 @@ const App = () => {
   return (
     <div className="App">
       <CurrencyTable currencies={data.currencies}></CurrencyTable>
-        
-
-      
     </div>
   );
 }
+        
+
+      
 
 
 
