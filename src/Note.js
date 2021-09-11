@@ -1,12 +1,17 @@
-
+import "./App.css"
 
 const Note = ({note,handleRemove})=>{
     return(
         <div>
-            <div>{note.text}</div>
-            <button onClick={()=>handleRemove(note.id)}>Delete</button>
-            <br></br>
-            <br></br>
+            <div class="note">
+                <p>{note.text}</p>
+                <button onClick={()=>handleRemove(note.id)}>Delete</button>
+                
+            </div>
+
+                <br></br>
+                <br></br>
+            
         </div>
     )
 }

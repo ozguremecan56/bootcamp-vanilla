@@ -2,6 +2,16 @@ table, th, td {
     border:1px solid black;
   }
 
+p{
+    width:450px;
+  }
+
+.note{
+  border:1px solid black;
+  width:520px;
+  word-break:break-all;
+}  
+
   textarea{
     width:500px;
     height:200px;
