@@ -5,6 +5,8 @@ const Note = ({note,handleRemove})=>{
         <div>
             <div>{note.text}</div>
             <button onClick={()=>handleRemove(note.id)}>Delete</button>
+            <br></br>
+            <br></br>
         </div>
     )
 }

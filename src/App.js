@@ -27,6 +27,7 @@ const App = () => {
     setNotes(tempNotes)
     setCount(count+1)
     console.log(notes)
+    setCurrentNote("")
   }
 
   return (
@@ -34,12 +35,13 @@ const App = () => {
       <CurrencyTable currencies={data.currencies}></CurrencyTable>
 
       <form onSubmit={onSubmit}>
-        <textarea onChange={handleInputChange}></textarea>
+        <textarea value={currentNote} onChange={handleInputChange}></textarea>
         <div>
           <button type="submit">Add note</button>
         </div>
-        
+        <br></br>
       </form>
+        
       <NoteList notes={notes} handleRemove={handleNoteRemove}></NoteList>
 
       
