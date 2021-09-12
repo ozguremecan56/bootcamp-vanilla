@@ -1,53 +1,36 @@
-import data from "./data"
-import CurrencyTable from "./CurrencyTable";
+// import data from "./data"
+// import CurrencyTable from "./CurrencyTable";
 import "./App.css"
 import NoteList from "./NoteList"
 import {useState} from "react"; 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
+import NoteContainer from "./NoteContainer";
+import NoteDetails from "./NoteDetails";
 
 const App = () => {
-  const [notes,setNotes] = useState([])
-  const [currentNote, setCurrentNote] = useState("");
-  const [count, setCount] = useState(0)
 
-  const handleInputChange = (event)=>{
-    setCurrentNote(event.target.value)
-  }
-
-  const handleNoteRemove = (id)=>{
-    let filtered=notes.filter(note=>note.id!==id)
-    setNotes(filtered)
-  }
-
-  const onSubmit = (event)=>{
-    event.preventDefault();
-    
-    let tempNotes = notes;
-    tempNotes.push({id:count, text:currentNote})
-    setNotes(tempNotes)
-    setCount(count+1)
-    console.log(notes)
-    setCurrentNote("")
-  }
-
-  return (
-    <div className="App">
-      <CurrencyTable currencies={data.currencies}></CurrencyTable>
-
-      <form onSubmit={onSubmit}>
-        <textarea value={currentNote} onChange={handleInputChange}></textarea>
-        <div>
-          <button type="submit">Add note</button>
-        </div>
-        <br></br>
-      </form>
-        
-      <NoteList notes={notes} handleRemove={handleNoteRemove}></NoteList>
-
-      
-      
-    </div>
-  );
+  const [data,setData] = useState("")
+  
+    return(
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path = "/">
+              <NoteContainer setData={setData}/>
+            </Route>
+            <Route exact path = "/post/:id">
+              <NoteDetails data={data}/>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    )
 }
         
 
