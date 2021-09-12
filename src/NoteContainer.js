@@ -1,18 +1,13 @@
 import "./App.css"
 import NoteList from "./NoteList"
 import {useState} from "react"; 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 
     
-    const NoteContainer = ({setData})=>{
-    const [notes,setNotes] = useState([])
-    const [currentNote, setCurrentNote] = useState("");
-    const [count, setCount] = useState(0)
+  const NoteContainer = ({setData})=>{
+  const [notes,setNotes] = useState([])
+  const [currentNote, setCurrentNote] = useState("");
+  const [count, setCount] = useState(0)
 
   const handleInputChange = (event)=>{
     setCurrentNote(event.target.value)
@@ -41,12 +36,12 @@ import {
 
   return(
     <div>
-    <form onSubmit={onSubmit}>
-    <textarea value={currentNote} onChange={handleInputChange}></textarea>
+      <form onSubmit={onSubmit}>
+      <textarea value={currentNote} onChange={handleInputChange}></textarea>
     <div>
       <button type="submit">Add note</button>
     </div>
-    <br></br>
+      <br></br>
   </form>
     
   <NoteList setData={setData} notes={notes} handleRemove={handleNoteRemove}></NoteList>

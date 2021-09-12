@@ -1,8 +1,7 @@
 // import data from "./data"
 // import CurrencyTable from "./CurrencyTable";
 import "./App.css"
-import NoteList from "./NoteList"
-import {useState} from "react"; 
+import {useState, useContext, createContext} from "react"; 
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,29 +12,49 @@ import {
 import NoteContainer from "./NoteContainer";
 import NoteDetails from "./NoteDetails";
 
+export const UserContext = createContext();
+
 const App = () => {
 
   const [data,setData] = useState("")
   
     return(
       <div>
+        <UserContext.Provider value={{data,setData}}>
         <Router>
           <Switch>
+          
             <Route exact path = "/">
-              <NoteContainer setData={setData}/>
+              <NoteContainer/>
             </Route>
             <Route exact path = "/post/:id">
-              <NoteDetails data={data}/>
+                <NoteDetails/>
             </Route>
+            
           </Switch>
         </Router>
+        </UserContext.Provider>
+        
       </div>
+            
+              
+             
+                
+
+            
+              
+
+              
+                  
+              
+            
     )
 }
         
-
+export default App
       
 
 
 
-export default App;
+
+

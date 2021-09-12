@@ -1,20 +1,18 @@
 import Note from "./Note"
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    BrowserRouter
-  } from "react-router-dom";
+import UserContext from "./App"
+import { useContext } from "react"
 
 const NoteList=({notes,handleRemove,setData})=>{
 
     return(
         
             <div>
-                {notes.map((note)=>(<Link to={'notes/' + note.id}>
-                    <Note setData={setData} note={note} handleRemove={handleRemove}></Note>
-                    </Link>))}
+                {notes.map((note)=>(
+                    
+                        <Note note={note} handleRemove={handleRemove}></Note>
+                    
+                    
+                    ))}
             </div>
             
         
